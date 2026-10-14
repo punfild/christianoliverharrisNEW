@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://christianoliverharris.com/sitemap.xml
