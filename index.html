@@ -140,7 +140,11 @@ h1 .ln{display:block;text-wrap:balance}
 .tile{background:var(--soft);border-radius:28px;padding:2rem 1.7rem;display:flex;flex-direction:column}
 .tile .dur{display:block;color:var(--mute-l);font-size:15px;margin:.5rem 0 1.4rem}
 .tile p{margin:0 0 1.2rem;color:#424245;line-height:1.45;max-width:36rem}
-.tile .tlink{margin-top:auto;align-self:flex-start;color:#fff}
+.tile .btn{margin-top:auto;align-self:flex-start}
+.tile.black .btn{background:#fff;color:#000}
+.tile.black .btn:hover{background:#e8e8ed}
+.tile .tilenote{margin:0 0 1.2rem;font-weight:600;color:#fff}
+.tile.black p.tilenote{color:#fff}
 .tile.black{background:#000;color:#fff}
 .tile.black h3{color:#fff}
 .tile.black .dur{color:var(--mute-d)}
@@ -213,6 +217,30 @@ h1 .ln{display:block;text-wrap:balance}
 .cookie a{color:#6e6e73}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:#a1a1a6;cursor:pointer}
 .linkbtn:hover{color:#fff}
+/* waitlist */
+dialog.wl{border:0;padding:0;border-radius:28px;max-width:540px;width:calc(100% - 32px);max-height:calc(100dvh - 32px);overflow:auto;background:#fff;color:var(--ink);box-shadow:0 24px 80px rgba(0,0,0,.35)}
+dialog.wl::backdrop{background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+body:has(dialog.wl[open]){overflow:hidden}
+.wl-in{padding:34px 30px 28px;position:relative}
+.wl-x{position:absolute;right:14px;top:12px;width:36px;height:36px;border:0;background:var(--soft);border-radius:50%;font:300 24px/1 var(--sans);cursor:pointer;color:#000}
+.wl h2{font:400 clamp(1.7rem,4vw,2.1rem)/1.1 var(--serif);margin:0 40px .8rem 0;letter-spacing:-.02em;color:#000}
+.wl-sub{color:#424245;margin:0 0 1.2rem}
+.wl-list{list-style:none;margin:0 0 1rem;padding:0;font-size:15px;line-height:1.45}
+.wl-list li{padding:.5rem 0;border-top:1px solid var(--line-l)}
+.wl-list li:last-child{border-bottom:1px solid var(--line-l)}
+.wl-price{font-size:15px;font-weight:600;margin:0 0 1.2rem}
+.wl-field{margin-bottom:10px}
+.wl-field input{width:100%;padding:13px 20px;border-radius:980px;border:1px solid var(--line-l);background:#fff;font:400 17px/1.17 var(--sans);color:var(--ink);letter-spacing:-.022em}
+.wl-check{display:flex;gap:.7rem;align-items:flex-start;font-size:14px;line-height:1.4;color:var(--mute-l);margin:.6rem 0 1rem}
+.wl-check input{margin-top:.15rem;width:1.05rem;height:1.05rem;accent-color:#000;flex:none}
+dialog.wl .btn{background:#000;color:#fff}
+dialog.wl .btn:hover{background:#333336}
+dialog.wl .btn:disabled{opacity:.6;cursor:default}
+.wl-submit{width:100%}
+.wl-msg{min-height:1.2em;margin:.8rem 0 0;font-size:14px;color:#b3261e}
+.wl-ok{text-align:center;padding:1.4rem 0 .4rem}
+.wl-ok h3{margin-bottom:.6rem}
+.wl-ok p{color:#424245;margin:0}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -316,7 +344,8 @@ h1 .ln{display:block;text-wrap:balance}
           <article class="tile black">
             <h3>Always On</h3><span class="dur">12 mesi</span>
             <p>Un partner strategico per tutto l’anno. Sessioni strutturate, supporto quando una decisione non può aspettare, revisione dei documenti, introduzioni chiave.</p>
-            <a class="tlink" href="https://always-on.christianoliverharris.com">Scopri Always On (in inglese)</a>
+            <p class="tilenote">Iscrizioni da gennaio 2027. Posti limitati.</p>
+            <button type="button" class="btn wl-open">Iscriviti alla lista d’attesa</button>
           </article>
         </div>
         <p class="note">Il costo dipende dal percorso e lo definiamo insieme dopo la Clarity Session.</p>
@@ -442,10 +471,10 @@ h1 .ln{display:block;text-wrap:balance}
       <summary>Informativa privacy</summary>
       <div class="txt">
         <p>Titolare del trattamento: Christian Oliver Harris, P.IVA 13715550961, christian@christianoliverharris.com.</p>
-        <p>Dati trattati: i dati che condividi quando mi contatti via email o WhatsApp, o quando prenoti una Clarity Session; e, solo con il tuo consenso, dati di navigazione raccolti tramite Google Analytics. L’iscrizione alla guida gratuita avviene su guide.christianoliverharris.com, che ha una propria informativa.</p>
-        <p>Finalità e base giuridica: rispondere ai tuoi messaggi e gestire la prenotazione, su tua richiesta; misurare come viene usato il sito, solo con il tuo consenso, revocabile in ogni momento da Preferenze cookie.</p>
-        <p>Conservazione: per il tempo necessario a gestire la tua richiesta e agli obblighi di legge.</p>
-        <p>Destinatari: fornitori tecnici che ospitano il sito e gestiscono le prenotazioni, in qualità di responsabili del trattamento; Google (Google Analytics), solo se acconsenti.</p>
+        <p>Dati trattati: i dati che condividi quando mi contatti via email o WhatsApp, o quando prenoti una Clarity Session; l’email e, se li indichi, il nome che inserisci nella lista d’attesa di Always On; e, solo con il tuo consenso, dati di navigazione raccolti tramite Google Analytics. L’iscrizione alla guida gratuita avviene su guide.christianoliverharris.com, che ha una propria informativa.</p>
+        <p>Finalità e base giuridica: rispondere ai tuoi messaggi e gestire la prenotazione, su tua richiesta; avvisarti quando si aprono le iscrizioni ad Always On, con il tuo consenso; misurare come viene usato il sito, solo con il tuo consenso, revocabile in ogni momento da Preferenze cookie.</p>
+        <p>Conservazione: per il tempo necessario a gestire la tua richiesta e agli obblighi di legge. I dati della lista d’attesa sono conservati fino all’apertura delle iscrizioni e comunque non oltre 12 mesi; puoi cancellarti in ogni momento rispondendo alla mail di conferma.</p>
+        <p>Destinatari: fornitori tecnici che ospitano il sito e gestiscono le prenotazioni, in qualità di responsabili del trattamento; Google, per la posta e i fogli in cui sono raccolte le iscrizioni alla lista d’attesa, e per Google Analytics solo se acconsenti.</p>
         <p>I tuoi diritti: puoi chiedere accesso, rettifica, cancellazione, limitazione e portabilità scrivendo all’indirizzo sopra, e proporre reclamo al Garante per la protezione dei dati personali.</p>
         <p>Cookie: il sito usa solo cookie di Google Analytics, e solo se li accetti. Puoi cambiare scelta in ogni momento da Preferenze cookie nel footer. Non usa cookie pubblicitari né di profilazione.</p>
       </div>
@@ -480,6 +509,37 @@ h1 .ln{display:block;text-wrap:balance}
   openPriv();
 })();
 </script>
+<dialog class="wl" id="wl" aria-labelledby="wl-t">
+  <div class="wl-in">
+    <button type="button" class="wl-x" aria-label="Chiudi">&times;</button>
+    <div id="wl-main">
+      <h2 id="wl-t">Always On, lista d’attesa</h2>
+      <p class="wl-sub">Le iscrizioni riaprono a gennaio 2027 e i posti sono limitati. Lascia la tua email e ti scrivo appena si aprono.</p>
+      <ul class="wl-list">
+        <li>12 mesi di accompagnamento</li>
+        <li>Almeno una sessione al mese da 60 minuti su Google Meet, senza un numero massimo</li>
+        <li>Supporto tra una sessione e l’altra via WhatsApp, email e brevi telefonate, con risposta entro 48 ore lavorative</li>
+        <li>Revisione di fino a 2 documenti al mese</li>
+        <li>Introduzioni mirate nell’arco dei 12 mesi, preparate insieme</li>
+        <li>Report scritto dopo ogni sessione</li>
+      </ul>
+      <p class="wl-price">4.500 € IVA inclusa. Se paghi tutto subito, 4.365 € (-3%). In alternativa, due rate da 2.250 €.</p>
+      <form id="wl-form" novalidate>
+        <input type="text" name="website" class="vh" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="wl-field"><label class="vh" for="wl-email">Email</label><input id="wl-email" type="email" name="email" required autocomplete="email" placeholder="nome@azienda.com"></div>
+        <div class="wl-field"><label class="vh" for="wl-name">Nome (facoltativo)</label><input id="wl-name" type="text" name="name" autocomplete="given-name" placeholder="Nome (facoltativo)"></div>
+        <label class="wl-check"><input type="checkbox" name="consent" required><span><span>Acconsento a ricevere una email quando si aprono le iscrizioni ad Always On.</span> <a href="#privacy">Informativa privacy</a></span></label>
+        <button class="btn wl-submit" type="submit">Iscriviti alla lista d’attesa</button>
+        <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="wl-ok" id="wl-ok" hidden>
+      <h3>Sei in lista.</h3>
+      <p>Ti scrivo appena si aprono le iscrizioni, a gennaio 2027. Se non vedi la mia conferma, controlla la cartella spam.</p>
+    </div>
+  </div>
+</dialog>
+
 <div class="cookie" id="cookie" role="dialog" aria-labelledby="cookie-t" hidden>
   <p id="cookie-t">Uso Google Analytics per capire come viene usato il sito, solo se acconsenti.</p>
   <div class="cookie-act">
@@ -528,6 +588,62 @@ h1 .ln{display:block;text-wrap:balance}
     if(v==='granted')loadGA();else clearGA();
   });
   document.getElementById('cookie-pref').addEventListener('click',function(){box.hidden=false});
+})();
+</script>
+<script>
+(function(){
+  var URL='https://script.google.com/macros/s/AKfycbyfyRnmYBpQvh1OCA49bPr1M6q5h85h939ffNzN2kAQQfc7dlR4t8cZ-ZhKFvq-7nCb/exec';
+  var dlg=document.getElementById('wl');
+  if(!dlg||typeof dlg.showModal!=='function')return;
+  var lang=document.documentElement.lang==='en'?'en':'it';
+  var M={it:{send:'Invio in corso...',bad:'Inserisci un indirizzo email valido.',need:'Serve il consenso per iscriverti.',err:'Non sono riuscito a inviare. Riprova o scrivimi a christian@christianoliverharris.com.'},
+         en:{send:'Sending...',bad:'Please enter a valid email address.',need:'Your consent is needed to sign up.',err:'I could not send it. Please try again or write to christian@christianoliverharris.com.'}}[lang];
+  var form=document.getElementById('wl-form'),msg=document.getElementById('wl-msg'),ok=document.getElementById('wl-ok'),main=document.getElementById('wl-main');
+  function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function openWl(){
+    if(dlg.open)return;
+    dlg.showModal();ls('coh_wl_seen','1');
+    if(window.gtag)window.gtag('event','waitlist_open',{language:lang});
+  }
+  [].slice.call(document.querySelectorAll('.wl-open')).forEach(function(b){b.addEventListener('click',openWl)});
+  dlg.querySelector('.wl-x').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){
+    if(e.target.closest('a[href="#privacy"]')){dlg.close();return}
+    var r=dlg.getBoundingClientRect();
+    if(e.target===dlg&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dlg.close();
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();msg.textContent='';
+    var d=new FormData(form),email=String(d.get('email')||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent=M.bad;return}
+    if(!d.get('consent')){msg.textContent=M.need;return}
+    var body=new URLSearchParams();
+    body.set('email',email);body.set('name',String(d.get('name')||'').trim());body.set('lang',lang);
+    body.set('consent','si');body.set('page',location.href.split('#')[0]);body.set('website',String(d.get('website')||''));
+    var btn=form.querySelector('.wl-submit'),label=btn.textContent;
+    btn.disabled=true;btn.textContent=M.send;
+    var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},15000);
+    fetch(URL,{method:'POST',mode:'no-cors',body:body,signal:ctl?ctl.signal:undefined}).then(function(){
+      clearTimeout(tm);main.hidden=true;ok.hidden=false;ls('coh_wl_done','1');
+      if(window.gtag)window.gtag('event','waitlist_signup',{language:lang});
+    }).catch(function(){
+      clearTimeout(tm);btn.disabled=false;btn.textContent=label;msg.textContent=M.err;
+    });
+  });
+  // apertura automatica: una sola volta, solo desktop, dopo 40 secondi e mai sopra il banner cookie
+  var desk=window.matchMedia&&window.matchMedia('(min-width:900px) and (hover:hover) and (pointer:fine)').matches;
+  if(desk&&!ls('coh_wl_seen')&&!ls('coh_wl_done')){
+    var tries=0,iv;
+    var tick=function(){
+      tries++;
+      var banner=document.getElementById('cookie');
+      if(ls('coh_wl_seen')||ls('coh_wl_done')||tries>40){clearInterval(iv);return}
+      if(banner&&!banner.hidden)return;
+      if(document.querySelector('dialog[open]'))return;
+      clearInterval(iv);openWl();
+    };
+    setTimeout(function(){iv=setInterval(tick,5000);tick()},40000);
+  }
 })();
 </script>
 </body>
