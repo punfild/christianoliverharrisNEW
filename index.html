@@ -232,6 +232,9 @@ body:has(dialog.wl[open]){overflow:hidden}
 .wl-list li{padding:.5rem 0;border-top:1px solid var(--line-l)}
 .wl-list li:last-child{border-bottom:1px solid var(--line-l)}
 .wl-price{font-size:15px;font-weight:600;margin:0 0 1.2rem}
+.wl-more{font-weight:400;white-space:nowrap}
+.wl-urgent{margin:1rem 0 0;font-size:14px;line-height:1.45;color:var(--mute-l);text-align:center}
+.wl-urgent a{color:inherit}
 .wl-field{margin-bottom:10px}
 .wl-field input{width:100%;padding:13px 20px;border-radius:980px;border:1px solid var(--line-l);background:#fff;font:400 17px/1.17 var(--sans);color:var(--ink);letter-spacing:-.022em}
 .wl-check{display:flex;gap:.7rem;align-items:flex-start;font-size:14px;line-height:1.4;color:var(--mute-l);margin:.6rem 0 1rem}
@@ -540,16 +543,13 @@ html.bar-off{--bar:0px}
     <button type="button" class="wl-x" aria-label="Chiudi">&times;</button>
     <div id="wl-main">
       <h2 id="wl-t">Always On, lista d’attesa</h2>
-      <p class="wl-sub">Le iscrizioni riaprono a gennaio 2027 e i posti sono limitati. Lascia la tua email e ti scrivo appena si aprono.</p>
+      <p class="wl-sub">Un coach al tuo fianco per 12 mesi. Le iscrizioni riaprono a gennaio 2027 e i posti sono limitati: lascia la tua email e ti scrivo appena si aprono.</p>
       <ul class="wl-list">
-        <li>12 mesi di accompagnamento</li>
-        <li>Almeno una sessione al mese da 60 minuti su Google Meet, senza un numero massimo</li>
-        <li>Supporto tra una sessione e l’altra via WhatsApp, email e brevi telefonate, con risposta entro 48 ore lavorative</li>
-        <li>Revisione di fino a 2 documenti al mese</li>
-        <li>Introduzioni mirate nell’arco dei 12 mesi, preparate insieme</li>
-        <li>Report scritto dopo ogni sessione</li>
+        <li>Sessioni da 60 minuti, almeno una al mese e senza un numero massimo</li>
+        <li>Supporto tra una sessione e l’altra, con risposta entro 48 ore lavorative</li>
+        <li>Revisione dei documenti e introduzioni mirate</li>
       </ul>
-      <p class="wl-price">4.500 € IVA inclusa. Se paghi tutto subito, 4.365 € (-3%). In alternativa, due rate da 2.250 €.</p>
+      <p class="wl-price">4.500 € IVA inclusa, o 4.365 € pagando tutto subito. <a class="wl-more" href="https://always-on.christianoliverharris.com">Scopri il percorso</a></p>
       <form id="wl-form" novalidate>
         <input type="text" name="website" class="vh" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="wl-field"><label class="vh" for="wl-email">Email</label><input id="wl-email" type="email" name="email" required autocomplete="email" placeholder="nome@azienda.com"></div>
@@ -558,10 +558,12 @@ html.bar-off{--bar:0px}
         <button class="btn wl-submit" type="submit">Iscriviti alla lista d’attesa</button>
         <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
       </form>
+      <p class="wl-urgent">Hai urgenza? <a href="https://calendly.com/christianoliverharris/meet-chris">Prenota una Clarity Session</a> e ne parliamo subito.</p>
     </div>
     <div class="wl-ok" id="wl-ok" hidden>
       <h3>Sei in lista.</h3>
       <p>Ti scrivo appena si aprono le iscrizioni, a gennaio 2027. Se non vedi la mia conferma, controlla la cartella spam.</p>
+      <p class="wl-urgent">Hai urgenza? <a href="https://calendly.com/christianoliverharris/meet-chris">Prenota una Clarity Session</a> e ne parliamo subito.</p>
     </div>
   </div>
 </dialog>
