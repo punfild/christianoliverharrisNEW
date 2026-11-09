@@ -232,6 +232,9 @@ body:has(dialog.wl[open]){overflow:hidden}
 .wl-list li{padding:.5rem 0;border-top:1px solid var(--line-l)}
 .wl-list li:last-child{border-bottom:1px solid var(--line-l)}
 .wl-price{font-size:15px;font-weight:600;margin:0 0 1.2rem}
+.wl-more{font-weight:400;white-space:nowrap}
+.wl-urgent{margin:1rem 0 0;font-size:14px;line-height:1.45;color:var(--mute-l);text-align:center}
+.wl-urgent a{color:inherit}
 .wl-field{margin-bottom:10px}
 .wl-field input{width:100%;padding:13px 20px;border-radius:980px;border:1px solid var(--line-l);background:#fff;font:400 17px/1.17 var(--sans);color:var(--ink);letter-spacing:-.022em}
 .wl-check{display:flex;gap:.7rem;align-items:flex-start;font-size:14px;line-height:1.4;color:var(--mute-l);margin:.6rem 0 1rem}
@@ -539,16 +542,13 @@ html.bar-off{--bar:0px}
     <button type="button" class="wl-x" aria-label="Close">&times;</button>
     <div id="wl-main">
       <h2 id="wl-t">Always On waitlist</h2>
-      <p class="wl-sub">Enrollment reopens in January 2027 and spots are limited. Leave your email and I will write to you as soon as it opens.</p>
+      <p class="wl-sub">A coach by your side for 12 months. Enrollment reopens in January 2027 and spots are limited: leave your email and I will write to you as soon as it opens.</p>
       <ul class="wl-list">
-        <li>12 months of support</li>
-        <li>At least one 60-minute session a month on Google Meet, with no maximum</li>
-        <li>Support between sessions by WhatsApp, email and short calls, with a reply within 48 working hours</li>
-        <li>Review of up to 2 documents a month</li>
-        <li>Targeted introductions over the 12 months, prepared together</li>
-        <li>Written report after every session</li>
+        <li>60-minute sessions, at least one a month and with no maximum</li>
+        <li>Support between sessions, with a reply within 48 working hours</li>
+        <li>Document review and targeted introductions</li>
       </ul>
-      <p class="wl-price">€4,500 VAT included. Pay in full upfront and it is €4,365 (-3%). Or two installments of €2,250.</p>
+      <p class="wl-price">€4,500 VAT included, or €4,365 paying in full upfront. <a class="wl-more" href="https://always-on.christianoliverharris.com">See the program</a></p>
       <form id="wl-form" novalidate>
         <input type="text" name="website" class="vh" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="wl-field"><label class="vh" for="wl-email">Email</label><input id="wl-email" type="email" name="email" required autocomplete="email" placeholder="name@company.com"></div>
@@ -557,10 +557,12 @@ html.bar-off{--bar:0px}
         <button class="btn wl-submit" type="submit">Join The Waitlist</button>
         <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
       </form>
+      <p class="wl-urgent">In a hurry? <a href="https://calendly.com/christianoliverharris/meet-chris">Book a Clarity Session</a> and we talk now.</p>
     </div>
     <div class="wl-ok" id="wl-ok" hidden>
       <h3>You are on the list.</h3>
       <p>I will write to you as soon as enrollment opens, in January 2027. Check your spam folder if you do not see my confirmation.</p>
+      <p class="wl-urgent">In a hurry? <a href="https://calendly.com/christianoliverharris/meet-chris">Book a Clarity Session</a> and we talk now.</p>
     </div>
   </div>
 </dialog>
